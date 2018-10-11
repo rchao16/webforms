@@ -1,0 +1,379 @@
+{
+  "uie_api": {
+    "uie_service_id": 20,
+    "uie_server_reference_id": 20,
+    "uie_website_id": 880,
+    "environment_override": null,
+    "debug_env": ["LOCAL", "DEVELOPMENT", "STAGING","PRODUCTION"],
+    "notification_emails": {
+      "LOCAL": ["jbarclay@illinois.edu"],
+      "DEVELOPMENT": ["jbarclay@illinois.edu"],
+      "STAGING": ["jbarclay@illinois.edu"],
+      "PRODUCTION": ["uie-ewd@illinois.edu"]
+    },
+    "application_name": "Request Extension",
+    "application_machine_name": "request",
+    "email_disabled_env": ["LOCAL", "DEVELOPMENT", "STAGING"],
+    "application_email": "uie-ewd@illinois.edu",
+    "email_disabled": false
+  },
+  "forms": {
+    "all": {
+      "status": {
+        "Triag": "Triag",
+        "ending More Information": "Pending More Information",
+        "Jira|": "Jira",
+        "Rejected": "Rejected",
+        "Complete": "Complete"
+      },
+      "program_area": {
+        "4-H": "4-H",
+        "Community and Economic Development": "Community and Economic Development",
+        "Illinois Nutritional Education Program": "Illinois Nutritional Education Program",
+        "Family and Consumer Sciences": "Family and Consumer Sciences",
+        "Agrictulture and Natural Resources": "Agrictulture and Natural Resources",
+        "County Administration": "County Administration",
+        "State Extension": "tate Extension"
+      },
+      "offices": {
+        "494": "Alexander/Johnson/Massac/Pulaski/Union Unit {494 - UM}",
+        "481": "Adams/Brown/Hancock/Pike/Schuyler Unit {481 - UM}",
+        "488": "Bond/Clinton/Jefferson/Marion/Washington Unit {488 - UM}"
+      },
+      "counties": {
+        "Adams": "Adams",
+        "Alexander": "Alexander",
+        "Bond": "Bond",
+        "Boone": "Boone",
+        "Brown": "Brown",
+        "Bureau": "Bureau",
+        "Calhoun": "Calhoun",
+        "Carroll": "Carroll",
+        "Cass": "Cass",
+        "Champaign": "Champaign",
+        "Christian": "Christian",
+        "Clark": "Clark",
+        "Clay": "Clay",
+        "Clinton": "Clinton",
+        "Coles": "Coles",
+        "Cook": "Cook",
+        "Crawford": "Crawford",
+        "Cumberland": "Cumberland",
+        "DeKalb": "DeKalb",
+        "DeWitt": "DeWitt",
+        "Douglas": "Douglas",
+        "DuPage": "DuPage",
+        "Edgar": "Edgar",
+        "Edwards": "Edwards",
+        "Effingham": "Effingham",
+        "Fayette": "Fayette",
+        "Fulton": "Fulton",
+        "Gallatin": "Gallatin",
+        "Greene": "Greene",
+        "Grundy": "Grundy",
+        "Hamilton": "Hamilton",
+        "Hancock": "Hancock",
+        "Hardin & Pope": "Hardin & Pope",
+        "Henderson": "Henderson",
+        "Henry-Stark": "Henry-Stark",
+        "Iroquois": "Iroquois",
+        "Jasper": "Jasper",
+        "Jefferson": "Jefferson",
+        "Jersey": "Jersey",
+        "Jo Daviess": "Jo Daviess",
+        "Kane": "Kane",
+        "Kankakee": "Kankakee",
+        "Kendall": "Kendall",
+        "Knox": "Knox",
+        "Lake": "Lake",
+        "LaSalle": "LaSalle",
+        "Lawrence": "Lawrence",
+        "Livingston": "Livingston",
+        "Logan": "Logan",
+        "Macon": "Macon",
+        "Macoupin": "Macoupin",
+        "Madison": "Madison",
+        "Marion": "Marion",
+        "Marshall": "Marshall",
+        "Mason": "Mason",
+        "McDonough": "McDonough",
+        "McHenry": "McHenry",
+        "McLean": "McLean",
+        "Menard": "Menard",
+        "Mercer": "Mercer",
+        "Monroe": "Monroe",
+        "Montgomery": "Montgomery",
+        "Morgan": "Morgan",
+        "Ogle": "Ogle",
+        "Peoria": "Peoria",
+        "Piatt": "Piatt",
+        "Richland": "Richland",
+        "Rock Island": "Rock Island",
+        "Saline": "Saline",
+        "Sangamon": "Sangamon",
+        "Scott": "Scott",
+        "Shelby": "Shelby",
+        "Stephenson": "Stephenson",
+        "Tazewell": "Tazewell",
+        "Vermillion": "Vermillion",
+        "Wabash": "Wabash",
+        "Warren": "Warren",
+        "Washington": "Washington",
+        "Wayne": "Wayne",
+        "White": "White",
+        "Whiteside": "Whiteside",
+        "Will": "Will",
+        "Winnebago": "Winnebago",
+        "Woodford": "Woodford"
+      }
+    },
+    "marketing": {
+      "service_category": {
+        "Print": "Print",
+        "Design": "Design",
+        "Marketing Campaign": "Marketing Campaign",
+        "Brochure": "Brochure",
+        "Logo Work": "Logo Work"
+      }
+    },
+    "it": {
+      "service_category": {
+        "Internet Wifi or ISP": "Internet/Wifi/ISP",
+        "General Computer Issue": "General Computer issues",
+        "Skype for Business or Extension webinars": "Skype for Business/Extension webinars",
+        "Printing or Scanning": "Printing/Scanning",
+        "File Storage": "File storage (campus, Box.com)",
+        "Software Installations": "Software - Installations",
+        "Software MS Office": "Software - Microsoft Office",
+        "Software Adobe CC": "Software - Adobe Creative Cloud",
+        "Software Other": "Software - other",
+        "Ipad or Mobile Device": "ipad/Mobile",
+        "Monopad": "Monopad",
+        "EWD-Employee Updates": "Employee updates (non-new)",
+        "EWD-Extension Public Websites": "Extension public websites",
+        "EWD-Internal Web Applications": "Internal web applications (TEM, DTL, PRES, Banner, etc.)",
+        "Server Configuration": "Server Configuration"
+      }
+    },
+    "web": {
+      "service_category": {
+        "content": "Content Changes",
+        "theme": "Design Changes",
+        "bug": "Something is broken",
+        "feature-request": "New functionality Request"
+      },
+      "websites": {
+        "430": {
+          "name": "Business Innovation Services",
+          "hostname": "http://www.bis.uiuc.edu",
+          "directory": "/"
+        },
+        "431": {
+          "name": "Illinois Livestock Trail",
+          "hostname": "http://www.livestocktrail.uiuc.edu",
+          "directory": "/"
+        },
+        "854": {
+          "name": "100 Years",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/100yrs/"
+        },
+        "2": {
+          "name": "Becoming 4-H Saavy",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/4hfacts/"
+        },
+        "877": {
+          "name": "The ABCs of School Nutrition",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/abcsofschoolnutrition/"
+        },
+        "5": {
+          "name": "About Extension",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/aboutces/"
+        },
+        "863": {
+          "name": "The Affordable Care Act in Illinois",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/aca/"
+        },
+        "660": {
+          "name": "Illinois Agritourism (Mobile)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/agritourism/"
+        },
+        "488": {
+          "name": "Illinois Agritourism",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/agritourism/"
+        },
+        "432": {
+          "name": "Agricultural Safey and Health",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/agsafety/"
+        },
+        "714": {
+          "name": "Agricultural Safety and Health(Mobile)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/agsafety/"
+        },
+        "6": {
+          "name": "Ag Update Newsletter",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/agupdate/"
+        },
+        "7": {
+          "name": "Animals Past and Present",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/animals/"
+        },
+        "336": {
+          "name": "Animals Past and Present (Spanish)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/animals_sp/"
+        },
+        "14": {
+          "name": "Gardening with Annuals",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/annuals/"
+        },
+        "412": {
+          "name": "Gardening with Annuals (Spanish)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/annuals_sp/"
+        },
+        "15": {
+          "name": "Apples & More",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/apples/"
+        },
+        "305": {
+          "name": "Apples & More (Spanish)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/apples_sp/"
+        },
+        "876": {
+          "name": "An Artifact Speaks",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/artifact/"
+        },
+        "17": {
+          "name": "Your New Baby",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/baby/"
+        },
+        "316": {
+          "name": "Your New Baby (Spanish)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/baby_sp/"
+        },
+        "18": {
+          "name": "A Guide to the Business of Babysitting",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/babysitting/"
+        },
+        "250": {
+          "name": "Business of Babysitting (Spanish)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/babysitting_sp/"
+        },
+        "19": {
+          "name": "Asian Longhorned Beetle",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/beetle/"
+        },
+        "286": {
+          "name": "Beyond Impatiens and Petunias",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/beyond/"
+        },
+        "530": {
+          "name": "Beyond Impatiens and Petunias (Spanish)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/beyond_sp/"
+        },
+        "416": {
+          "name": "Black History Month",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/bhm/"
+        },
+        "839": {
+          "name": "Bioreactors, Water Table Management, and Water Quality",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/bioreactors/"
+        },
+        "838": {
+          "name": "Bioreactores, control de la napa freática y calidad del agua",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/bioreactors_sp/"
+        },
+        "861": {
+          "name": "Breast Cancer Awareness Course",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/breastcancer/"
+        },
+        "867": {
+          "name": "Breast Cancer Awareness Course Spanish",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/breastcancer_sp/"
+        },
+        "20": {
+          "name": "Bug Review",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/bugreview/"
+        },
+        "281": {
+          "name": "Bug Review (Spanish)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/bugreview_sp/"
+        },
+        "615": {
+          "name": "Building Entrepreneurial Communities",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/buildingec/"
+        },
+        "709": {
+          "name": "Building Entrepreneurial Communities (Mobile)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/buildingec/"
+        },
+        "21": {
+          "name": "Bulbs & More",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/bulbs/"
+        },
+        "420": {
+          "name": "Bulbs and More (Spanish)",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/bulbs_sp/"
+        },
+        "505": {
+          "name": "CADS: Community Assessment and Development Services",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/cads/"
+        },
+        "327": {
+          "name": "Careers with Extension",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/careers/"
+        },
+        "25": {
+          "name": "Character Education",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/ce/"
+        },
+        "26": {
+          "name": "4-H Ceremonies",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/ceremonies/"
+        },
+        "390": {
+          "name": "Embryology Teacher Resources",
+          "hostname": "https://extension.illinois.edu",
+          "directory": "/chick/"
+        }
+      }
+    }
+  }
+}
