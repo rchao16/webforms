@@ -21,7 +21,7 @@
     "all": {
       "status": {
         "Triag": "Triag",
-        "ending More Information": "Pending More Information",
+        "Pending More Information": "Pending More Information",
         "Jira|": "Jira",
         "Rejected": "Rejected",
         "Complete": "Complete"
