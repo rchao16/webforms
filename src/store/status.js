@@ -8,7 +8,7 @@
   * INITIAL STATE
   */
     const initialState = {
-
+            
     }
 /**
  *  ACTION CREATORS

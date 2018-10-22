@@ -15,8 +15,6 @@ class SampleComponent extends Component {
         super(props);
         this.state = {value: 'coconut'};
     
-        // this.handleChange = this.handleChange.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
       }
     
       
@@ -30,6 +28,7 @@ class SampleComponent extends Component {
       }
     
       render() {
+          console.log("props", this.props)
         return (
             <div>
                 <h1>Some woohoo Wropdown components!</h1>
