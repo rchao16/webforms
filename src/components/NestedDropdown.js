@@ -30,10 +30,81 @@ const dummyData = {
 }
 
 export default class MenuExampleSubMenu extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedIds: []
+    }
+  }
+
   //defines initial empty state
-  state = {}
+  // state = {}
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  //hover over selectedid; adds the current option id (selected)
+  // into the 'selectedIds' array at corresponding array index (depthLevel)
+  handleSelectedId = (selected, depthLevel) => {
+    return () => {
+      //copies the array of selectedIds
+      const updatedArray = this.state.selectedIds.slice(0)
+
+      //updates the option at the selected index (depth level)
+      updatedArray[depthLevel] = selected
+
+      //updates the state with the new updated array
+      this.setState({selectedIds : updatedArray})
+    }
+  }
+
+
+  //recursive nested drilldown
+  renderSubMenu = (options, depthLevel = 0) => {
+    //creates array of options
+    const menuOptions = options.map(option => {
+      const display = (option.link
+        ? <a href={ option.link }>{ option.text }</a>
+        : <span>{ option.text }</span>
+      ),
+
+      //returns a boolean that checks if the options list has another list
+      //might need to change this conditional 
+      hasOptions = (options.options && option.options.length > 0);
+
+      let subMenu;
+
+      //only render selected submenu and only if nested options exist
+      //if selected option matches the option at the indexed
+      if ((this.state.selectedIds[depthLevel] === option.id) && hasOptions) {
+
+        //increments the depth level to properly match the level of the submenu
+        const newDepthLevel = depthLevel + 1;
+
+        //calls the renderSubMenu with the selected option's option and incremented depthlevel
+        subMenu = this.renderSubMenu(option.options, newDepthLevel);
+      }
+
+      return (
+        <li 
+          key={ option.id }
+          onMouseEnter={
+            this.handleSelectedId(option.id, depthLevel)
+          }
+        >
+          { display }
+          { subMenu }
+        </li>
+      );
+    });
+
+    return (
+      <ul>
+        { menuOptions }
+      </ul>
+    )
+    
+  }
 
   render() {
     console.log("state", this.state)
@@ -94,6 +165,17 @@ export default class MenuExampleSubMenu extends Component {
           
           <Dropdown.Menu>
             {Object.keys(dummyData).map(e => {
+              if (Object.keys(e).length() > 0 ) {
+                Object.keys(e).map(f => {
+                  if (Object.keys(f).length() > 0 ) {
+                    return(
+                      <Dropdown text='MORAR'>
+                        
+                      </Dropdown>
+                    )
+                  }
+                })
+              }
               return (
                 <Dropdown.Item text={e} />
               )
