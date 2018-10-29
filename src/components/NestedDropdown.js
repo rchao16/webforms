@@ -28,87 +28,67 @@ const dummyData = {
     }  
   }
 }
+// formatted JSON object should be in this form.
+//can probably use Object.keys(object) to convert to array
+var item=[
+  {
+      name: '1',
+      child: []
+  },
+  {
+    name: '2',
+    child: [
+      {
+        name: '2.1',
+        child: [
+          {
+            name: '2.1.1',
+            child:[
+              {
+                name: '2.1.1.1',
+                child: [],
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: '2.2',
+        child: []
+      }
+    ]
+  }
+];
 
 export default class MenuExampleSubMenu extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      selectedIds: []
     }
   }
 
-  //defines initial empty state
-  // state = {}
-
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-  //hover over selectedid; adds the current option id (selected)
-  // into the 'selectedIds' array at corresponding array index (depthLevel)
-  handleSelectedId = (selected, depthLevel) => {
-    return () => {
-      //copies the array of selectedIds
-      const updatedArray = this.state.selectedIds.slice(0)
-
-      //updates the option at the selected index (depth level)
-      updatedArray[depthLevel] = selected
-
-      //updates the state with the new updated array
-      this.setState({selectedIds : updatedArray})
-    }
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name })
+    console.log('state',this.state)
   }
 
 
-  //recursive nested drilldown
-  renderSubMenu = (options, depthLevel = 0) => {
-    //creates array of options
-    const menuOptions = options.map(option => {
-      const display = (option.link
-        ? <a href={ option.link }>{ option.text }</a>
-        : <span>{ option.text }</span>
-      ),
-
-      //returns a boolean that checks if the options list has another list
-      //might need to change this conditional 
-      hasOptions = (options.options && option.options.length > 0);
-
-      let subMenu;
-
-      //only render selected submenu and only if nested options exist
-      //if selected option matches the option at the indexed
-      if ((this.state.selectedIds[depthLevel] === option.id) && hasOptions) {
-
-        //increments the depth level to properly match the level of the submenu
-        const newDepthLevel = depthLevel + 1;
-
-        //calls the renderSubMenu with the selected option's option and incremented depthlevel
-        subMenu = this.renderSubMenu(option.options, newDepthLevel);
-      }
-
+  //recursive dropdown menu
+  //needs to follow a certain format for response JSON object
+  _createDropdown = (item) => {
+    return item.map((elem, i) => {
       return (
-        <li 
-          key={ option.id }
-          onMouseEnter={
-            this.handleSelectedId(option.id, depthLevel)
-          }
-        >
-          { display }
-          { subMenu }
-        </li>
-      );
-    });
-
-    return (
-      <ul>
-        { menuOptions }
-      </ul>
-    )
-    
+        <Dropdown item text={elem.name} key={elem.name}>
+          <Dropdown.Menu key={elem.name}>
+            <Dropdown.Item text={elem.name} />
+            {elem.child.length ? this._createDropdown(elem.child) : null}
+          </Dropdown.Menu>
+        </Dropdown>
+      )
+    })
   }
 
   render() {
-    console.log("state", this.state)
-    console.log("dummy", dummyData);
 
     //creates new state called 'activeItem'
     const { activeItem } = this.state
@@ -147,41 +127,8 @@ export default class MenuExampleSubMenu extends Component {
           Messages
         </Menu.Item>
 
-        <Dropdown item text='More'>
-          {/* <Dropdown.Menu>
-            <Dropdown.Item icon='edit' text='Edit Profile' />
-            <Dropdown.Item icon='globe' text='Choose Language' />
-            <Dropdown.Item icon='settings' text='Account Settings' />
-              <Dropdown item text='Even More!'>
-                <Dropdown.Menu>
-                  <Dropdown.Item icon='globe' text='World Dom' />
-                </Dropdown.Menu>
-              </Dropdown>
-          </Dropdown.Menu> */}
-
-          {/*
-          Recursively iterate over the drilldown? Or let state handle it?
-          */}
-          
-          <Dropdown.Menu>
-            {Object.keys(dummyData).map(e => {
-              if (Object.keys(e).length() > 0 ) {
-                Object.keys(e).map(f => {
-                  if (Object.keys(f).length() > 0 ) {
-                    return(
-                      <Dropdown text='MORAR'>
-                        
-                      </Dropdown>
-                    )
-                  }
-                })
-              }
-              return (
-                <Dropdown.Item text={e} />
-              )
-            })}
-          </Dropdown.Menu>
-        </Dropdown>
+          {this._createDropdown(item)}
+        
       </Menu>
     )
   }
