@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Dropdown, Icon, Menu } from 'semantic-ui-react'
-
+//need to convert this json object into usable?
 const dummyData = {
   "forms": {
     "all": {
@@ -69,7 +69,6 @@ export default class MenuExampleSubMenu extends Component {
 
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name })
-    console.log('state',this.state)
   }
 
 
@@ -90,7 +89,7 @@ export default class MenuExampleSubMenu extends Component {
 
   render() {
 
-    //creates new state called 'activeItem'
+    //creates new piece of state called 'activeItem'
     const { activeItem } = this.state
 
     return (
