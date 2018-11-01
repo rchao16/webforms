@@ -5,12 +5,10 @@
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
-    "react-burger-menu": "^2.5.4",
     "react-dd-menu": "^2.0.2",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.4",
-    "react-transition-group": "^2.5.0",
-    "source-map-explorer": "^1.6.0"
+    "react-transition-group": "^2.5.0"
   },
   "scripts": {
     "analyze": "source-map-explorer build/static/js/main.*",
