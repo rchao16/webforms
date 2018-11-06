@@ -2,14 +2,19 @@ import React, {Component} from 'react'
 import 'bulma/css/bulma.css'
 
 
-export default class IndividualForm extends Component {
+export class IndividualForm extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
+            //state could also be created generically? 
             firstName:"",
             lastName:"",
-            email:""
+            email:"",
+            gender:"",
+            age:"",
+            ethnicity:"",
+            race:""
         }
     }
 
@@ -22,6 +27,15 @@ export default class IndividualForm extends Component {
     _handleSubmit = (evt) => {
         console.log("submit")
         console.log(this.state)
+        this.setState({
+            firstName:"",
+            lastName:"",
+            email:"",
+            gender:"",
+            age:"",
+            ethnicity:"",
+            race:""
+        })
     }
 
     render() {
@@ -29,11 +43,11 @@ export default class IndividualForm extends Component {
             <div >
                 <h1>Individual WebForm</h1>
                  {/*could pass some of these thing in as array or object?*/}
-                <div class="field">
-                <label class="label">First Name</label>
-                    <div class="control">
+                <div className="field is-grouped is-grouped-centered">
+                <label className="label">First Name</label>
+                    <div className="control">
                         <input 
-                        class="input" 
+                        className="input" 
                         type="text" 
                         placeholder="First Name" 
                         name="firstName"
@@ -43,11 +57,11 @@ export default class IndividualForm extends Component {
                     </div>
                 </div>
 
-                <div class="field">
-                <label class="label">Last Name</label>
-                    <div class="control">
+                <div className="field is-grouped is-grouped-centered">
+                <label className="label">Last Name</label>
+                    <div className="control">
                         <input 
-                        class="input" 
+                        className="input" 
                         type="text" 
                         placeholder="Last Name"
                         name="lastName"
@@ -58,11 +72,11 @@ export default class IndividualForm extends Component {
 
                 
 
-                <div class="field">
-                    <label class="label">Email</label>
-                        <div class="control">
+                <div className="field is-grouped is-grouped-centered">
+                    <label className="label">Email</label>
+                        <div className="control">
                             <input 
-                            class="input" 
+                            className="input" 
                             type="text" 
                             placeholder="Email" 
                             name="email"
@@ -71,24 +85,24 @@ export default class IndividualForm extends Component {
                         </div>
                 </div>
 
-                <div class="field is-grouped is-grouped-centered">
-                    <div class="control">
-                        <label class="label"> Gender </label>
-                            <div class="select is-multiple">
-                                <select>
-                                    <option>Male</option>
-                                    <option>Female</option>
+                <div className="field is-grouped is-grouped-centered">
+                    <div className="control">
+                        <label className="label"> Gender </label>
+                            <div className="select is-multiple">
+                                <select name="gender" onChange={this._handleChange}>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
                                 </select>
                             </div>
                     </div>
                 </div>
                 
 
-                <div class="field is-grouped is-grouped-centered">
-                    <div class="control">
-                        <label class="label"> Age </label>
-                            <div class="select is-multiple">
-                                <select multiple size="4">
+                <div className="field is-grouped is-grouped-centered">
+                    <div className="control">
+                        <label className="label"> Age </label>
+                            <div className="select is-multiple">
+                                <select multiple size="4" name="age" onChange={this._handleChange}>
                                     <option value="less than 5 Years">less than 5 Years</option>
                                     <option value="5-17 years">5-17 years</option>
                                     <option value="18-59 years">18-59 years</option>
@@ -98,11 +112,11 @@ export default class IndividualForm extends Component {
                     </div>
                 </div>
                 
-                <div class="field is-grouped is-grouped-centered">
-                    <div class="control">
-                        <label class="label"> Ethnicity </label>
-                            <div class="select is-multiple">
-                                <select multiple size="2">
+                <div className="field is-grouped is-grouped-centered">
+                    <div className="control">
+                        <label className="label"> Ethnicity </label>
+                            <div className="select is-multiple">
+                                <select multiple size="2" name="ethnicity" onChange={this._handleChange}>
                                     <option value="Hispanic/Latino">Hispanic/Latino</option>
                                     <option value="Non-Hispanic/Latino">Non-Hispanic/Latino</option>
                                 </select>
@@ -110,12 +124,12 @@ export default class IndividualForm extends Component {
                     </div>  
                 </div>
                 
-                <div class="field is-grouped is-grouped-centered">
-                    <div class="control">
-                        <label class="label"> Race </label>
-                            <div class="select is-multiple">
-                                <select multiple size="6">
-                                    <option value="American Indian or Alaska Native" name>American Indian or Alaska Native</option>
+                <div className="field is-grouped is-grouped-centered">
+                    <div className="control">
+                        <label className="label"> Race </label>
+                            <div className="select is-multiple">
+                                <select multiple size="6" name="race" onChange={this._handleChange}>
+                                    <option value="American Indian or Alaska Native">American Indian or Alaska Native</option>
                                     <option value="Asian">Asian</option>
                                     <option value="Black or African American">Black or African American</option>
                                     <option value="Native Hawaiian or other Pacific Islander">Native Hawaiian or other Pacific Islander</option>
@@ -126,9 +140,9 @@ export default class IndividualForm extends Component {
                     </div>
                 </div>
 
-                <div class="field is-grouped is-grouped-centered">
-                    <div class="control">
-                        <button class="button is-link" type="submit" onClick={this._handleSubmit}>Submit</button>
+                <div className="field is-grouped is-grouped-centered">
+                    <div className="control">
+                        <button className="button is-link" type="submit" onClick={this._handleSubmit}>Submit</button>
                     </div>
                 </div>
             </div>
