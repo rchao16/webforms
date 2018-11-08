@@ -42,7 +42,7 @@ export class IndividualForm extends Component {
         return(
             <div >
                 <h1>Individual WebForm</h1>
-                 {/*could pass some of these thing in as array or object?*/}
+                 {/*could pass some of these things in as array or object?*/}
                 <div className="field is-grouped is-grouped-centered">
                 <label className="label">First Name</label>
                     <div className="control">
