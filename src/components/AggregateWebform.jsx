@@ -1,12 +1,42 @@
 import React, {Component} from 'react'
 import 'bulma/css/bulma.css'
 
-let data = {
-    gender: {
-        1: "Male",
-        2: "Female"
+let data = [
+    {
+        name: "Gender",
+        child: [
+            {name: "Male", child: []},
+            {name: "Female", child: []}
+        ]
+    },
+    {
+        name: "Age",
+        child: [
+            {name: "Less than 5 Years", child: []},
+            {name: "5-17 Years", child: []},
+            {name: "19-59 Years", child:[]},
+            {name: "60 Years or older", child: []}
+        ]
+    },
+    {
+        name: "Ethnicity",
+        child: [
+            {name: "Hispanic/Latino", child: []},
+            {name: "Non-Hispanic/Latino", child: []}
+        ]
+    },
+    {
+        name: "Race",
+        child: [
+            {name: "American Indian or Alaska Native", child: []},
+            {name: "Asian", child: []},
+            {name: "Black or African American", child: []},
+            {name: "Native Hawaiian or Other Pacific Islander", child: []},
+            {name: "White", child: []},
+            {name: "Other", child: []},
+        ]
     }
-}
+]
 
 export default class AggregateWebform extends Component {
 
@@ -15,10 +45,13 @@ export default class AggregateWebform extends Component {
         this.state = {
             //state could also be created generically? 
             male:"",
+            female:"",
             gender:"",
             age:"",
             ethnicity:"",
-            race:""
+            race:"",
+            lt5: "",
+            ftsev:""
         }
     }
 
@@ -41,42 +74,34 @@ export default class AggregateWebform extends Component {
     }
 
     _createInput = (data) => {
-        return (
-            Object.keys(data).map( (e) => {
-                return(
-                    <div>
-                        <div className="field is-grouped is-grouped-centered">
-                            <div className="control">
-                                <label className="label"> {e} </label>
-                                {(e) => {
-                                    return(
-                                        Object.keys(e).map((f) => {
-                                            console.log(f)
-                                            return (
-                                                <div>
-                                                    <label className="label"> {f}} </label>
-                                                    <div className="control">
-                                                            <input 
-                                                            className="input" 
-                                                            type="text" 
-                                                            placeholder="Male" 
-                                                            name="male"
-                                                            value={this.state.firstName}
-                                                            onChange={this._handleChange} 
-                                                            />
-                                                    </div>
-                                                </div>
-                                            )
-                                        })
-                                    ) 
-                                }}
-                            </div>
+        return data.map((elem) => {
+            if(elem.child.length === 0) {
+                return (
+                    <div className="field is-grouped is-grouped-centered">
+                        <div className="control">
+                        <label className="label"> {elem.name} </label>
+                        <input
+                        className="input"
+                        type="text"
+                        name={elem.name}
+                        onChange={this._handleChange}
+                        />
+                        {elem.child.length ? this._createInput(elem.child) : null}
                         </div>
                     </div>
-                    
                 )
-            })     
-        )
+            }
+            return (
+                <div className="field is-grouped is-grouped-centered">
+                    <div className="control">
+                        <label className="label"> {elem.name}</label>
+                        {elem.child.length ? this._createInput(elem.child) : null}
+                    </div>
+                </div>
+            )
+            
+            
+        })
     }
 
     render() {
@@ -85,22 +110,6 @@ export default class AggregateWebform extends Component {
             <div>
                 
                 <h1>Aggregate Webform</h1>
-                {/* <div className="field is-grouped is-grouped-centered">
-                    <div className="control">
-                        <label className="label"> Gender </label>
-                           <label className="label"> Male </label>
-                           <div className="control">
-                                <input 
-                                className="input" 
-                                type="text" 
-                                placeholder="Male" 
-                                name="male"
-                                value={this.state.firstName}
-                                onChange={this._handleChange} 
-                                />
-                            </div>
-                    </div>
-                </div> */}
 
                 {this._createInput(data)}
 
