@@ -41,18 +41,8 @@ let data = [
 export default class AggregateWebform extends Component {
 
     constructor(props) {
-        super(props)
-        this.state = {
-            //state could also be created generically? 
-            male:"",
-            female:"",
-            gender:"",
-            age:"",
-            ethnicity:"",
-            race:"",
-            lt5: "",
-            ftsev:""
-        }
+        super(props);
+        this.state = {};
     }
 
     _handleChange = (evt) => {
@@ -65,11 +55,12 @@ export default class AggregateWebform extends Component {
         console.log("submit")
         console.log(this.state)
         this.setState({
-            gender:"",
-            age:"",
-            ethnicity:"",
-            race:"",
-            male:""
+            // gender:"",
+            // age:"",
+            // ethnicity:"",
+            // race:"",
+            // male:""
+            
         })
     }
 
@@ -77,7 +68,7 @@ export default class AggregateWebform extends Component {
         return data.map((elem) => {
             if(elem.child.length === 0) {
                 return (
-                    <div className="field is-grouped is-grouped-centered">
+                    <div className="field is-grouped is-grouped-centered" key={elem.name}>
                         <div className="control">
                         <label className="label"> {elem.name} </label>
                         <input
@@ -92,7 +83,7 @@ export default class AggregateWebform extends Component {
                 )
             }
             return (
-                <div className="field is-grouped is-grouped-centered">
+                <div className="field is-grouped is-grouped-centered" key={elem.name}>
                     <div className="control">
                         <label className="label"> {elem.name}</label>
                         {elem.child.length ? this._createInput(elem.child) : null}

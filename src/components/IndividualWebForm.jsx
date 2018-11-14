@@ -7,14 +7,14 @@ export class IndividualForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            //state could also be created generically? 
-            firstName:"",
-            lastName:"",
-            email:"",
-            gender:"",
-            age:"",
-            ethnicity:"",
-            race:""
+            //state is created dynamically
+            // firstName:"",
+            // lastName:"",
+            // email:"",
+            // gender:"",
+            // age:"",
+            // ethnicity:"",
+            // race:""
         }
     }
 
@@ -36,6 +36,7 @@ export class IndividualForm extends Component {
             ethnicity:"",
             race:""
         })
+        
     }
 
     render() {
