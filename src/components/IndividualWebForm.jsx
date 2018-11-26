@@ -3,47 +3,41 @@ import 'bulma/css/bulma.css'
 
 
 export class IndividualForm extends Component {
-
+    /**
+     * Constructor
+     * Uncontrolled Component for simple input
+     */
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            //state is created dynamically
-            // firstName:"",
-            // lastName:"",
-            // email:"",
-            // gender:"",
-            // age:"",
-            // ethnicity:"",
-            // race:""
         }
     }
 
+    /**
+     * Updates state with inputs
+     */
     _handleChange = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value
         })    
     }
 
+    /**
+     * Submit event
+     */
     _handleSubmit = (evt) => {
-        console.log("submit")
-        console.log(this.state)
-        this.setState({
-            firstName:"",
-            lastName:"",
-            email:"",
-            gender:"",
-            age:"",
-            ethnicity:"",
-            race:""
-        })
-        
+        console.log("submit");
+        console.log(this.state);
     }
 
+    /**
+     * Renders inputs fields 
+     * Most of the elements are created using Bulma
+     */
     render() {
         return(
             <div >
                 <h1>Individual WebForm</h1>
-                 {/*could pass some of these things in as array or object?*/}
                 <div className="field is-grouped is-grouped-centered">
                 <label className="label">First Name</label>
                     <div className="control">
@@ -52,7 +46,7 @@ export class IndividualForm extends Component {
                         type="text" 
                         placeholder="First Name" 
                         name="firstName"
-                        value={this.state.firstName}
+                        // value={this.state.firstName}
                         onChange={this._handleChange} 
                         />
                     </div>
@@ -66,7 +60,7 @@ export class IndividualForm extends Component {
                         type="text" 
                         placeholder="Last Name"
                         name="lastName"
-                        value={this.state.lastName} 
+                        // value={this.state.lastName} 
                         onChange={this._handleChange} />
                     </div>
                 </div>
@@ -81,7 +75,7 @@ export class IndividualForm extends Component {
                             type="text" 
                             placeholder="Email" 
                             name="email"
-                            value={this.state.email}
+                            // value={this.state.email}
                             onChange={this._handleChange} />
                         </div>
                 </div>

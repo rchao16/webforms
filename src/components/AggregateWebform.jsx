@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
 import 'bulma/css/bulma.css'
 
+/**
+ * Dummy data
+ */
 let data = [
     {
         name: "Gender",
@@ -45,24 +48,31 @@ export default class AggregateWebform extends Component {
         this.state = {};
     }
 
+    /**
+     *  Handles changes in the value of input fields
+     */
+
     _handleChange = (evt) => {
         this.setState({
             [evt.target.name]: evt.target.value
         })    
     }
+    /**
+     * Submit event
+     */
 
     _handleSubmit = (evt) => {
         console.log("submit")
         console.log(this.state)
-        this.setState({
-            // gender:"",
-            // age:"",
-            // ethnicity:"",
-            // race:"",
-            // male:""
+        // this.setState({
             
-        })
+        // })
     }
+
+    /**
+     * Recursively iterate through the dummy data 
+     * and renders the input fields for each category
+     */
 
     _createInput = (data) => {
         return data.map((elem) => {
@@ -95,6 +105,10 @@ export default class AggregateWebform extends Component {
         })
     }
 
+    /**
+     * Renders each input element
+     */
+    
     render() {
         return(
             
